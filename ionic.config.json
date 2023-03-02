@@ -1,0 +1,7 @@
+{
+  "name": "simplexsolver",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
