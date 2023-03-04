@@ -30,14 +30,6 @@ export default defineComponent({
         IonLabel
     },
     props: {
-        cv: {
-            type: Number,
-            required: true
-        },
-        cr: {
-            type: Number,
-            required: true
-        }
     },
     data() {
         return {

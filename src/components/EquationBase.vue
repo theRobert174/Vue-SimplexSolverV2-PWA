@@ -1,7 +1,7 @@
 <template>
     <div class="container-func">
         <ion-label for="opt">P: </ion-label>
-        <select id="opt" v-model="selectedOption" name="opt" style="margin-right: 1rem;">
+        <select id="opt" v-model="opt" name="opt" style="margin-right: 1rem;">
             <option value="min">min</option>
             <option value="max">max</option>
         </select>
@@ -24,12 +24,12 @@
             <input type="text" v-model="restrictions[i][j]">
             <ion-label>x<sub>{{ j+1 }}</sub></ion-label>
         </div>
-        <select  name="sign" style="margin-right: 1rem;">
+        <select v-model="resCond[i][0]" name="sign" style="margin-right: 1rem;">
             <option value="mayigu">&ge;</option>
             <option value="igu"> = </option>
-            <option value="menigu">&lt;</option>
+            <option value="menigu">&le;</option>
         </select>
-        <input type="text">
+        <input v-model="resCond[i][1]" type="text">
     </div>
     <div>
         <ion-button @click="imprimir">Resolver</ion-button>
@@ -58,18 +58,19 @@ export default defineComponent({
     },
     data(){
         return{
-            selectedOption: 'min',
+            opt: 'min',
 
             problem: [],
             restrictions: [[],[],[],[],[],[],[],[],[],[]],
-            resCond: []
+            resCond: [[],[]]
         }
     },
     methods:{
         imprimir(){
+            console.log(this.opt)
             console.table(this.problem)
+            console.table(this.resCond);
             console.table(this.restrictions)
-            console.log(this.restrictions[0][0])
         }
     }
 })
